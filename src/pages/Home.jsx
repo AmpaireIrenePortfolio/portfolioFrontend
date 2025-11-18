@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SkillsShowcase from '../components/SkillsShowcase';
 
+import { fetchProjects } from '../services/api';
+
+// ... other components
+
 function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -146,46 +150,108 @@ function JourneySection() {
   );
 }
 
+// function ProjectsPreview() {
+//   const projects = [
+//     {
+//       title: 'ONIMS — One Network Information Management System',
+//       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
+//       id: 'onims'
+//     },
+//     {
+//       title: 'Quizzy — Quiz Management Web App',
+//       image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800',
+//       id: 'quizzy'
+//     }
+//   ];
+
+//   return (
+//     <section className="py-16 bg-white">
+//       <div className="max-w-6xl mx-auto px-6">
+//         <h2 className="text-3xl md:text-4xl font-bold text-brand-dark mb-8 text-center">CHECK OUT SOME OF MY PROJECTS</h2>
+//         <div className="grid md:grid-cols-2 gap-8">
+//           {projects.map((project, index) => (
+//             <div key={index} className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+//               <div className="h-64 overflow-hidden">
+//                 <img 
+//                   src={project.image} 
+//                   alt={project.title}
+//                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+//                 />
+//               </div>
+//               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-70"></div>
+//               <div className="absolute bottom-0 left-0 right-0 p-6">
+//                 <Link 
+//                   to={`/projects#${project.id}`}
+//                   className="text-white font-bold text-xl hover:text-brand-accent transition"
+//                 >
+//                   {project.title}
+//                 </Link>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//         <div className="text-center mt-8">
+//           <Link to="/projects" className="inline-block bg-brand-main text-white px-8 py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition">
+//             View All Projects
+//           </Link>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
+
 function ProjectsPreview() {
-  const projects = [
-    {
-      title: 'ONIMS — One Network Information Management System',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
-      id: 'onims'
-    },
-    {
-      title: 'Quizzy — Quiz Management Web App',
-      image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800',
-      id: 'quizzy'
-    }
-  ];
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const getProjects = async () => {
+      try {
+        // We only need the first 2 for the preview
+        const data = await fetchProjects(); 
+        setProjects(data.slice(0, 2));
+      } catch (err) {
+        console.error("Failed to fetch projects for preview:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getProjects();
+  }, []);
 
   return (
     <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-brand-dark mb-8 text-center">CHECK OUT SOME OF MY PROJECTS</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="h-64 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+        {loading ? (
+          <p className="text-center">Loading...</p>
+        ) : (
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <div key={project._id || index} className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="h-64 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-70"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <Link 
+                    to={`/projects#${project.id || `project-${index}`}`}
+                    className="text-white font-bold text-xl hover:text-brand-accent transition"
+                  >
+                    {project.title}
+                  </Link>
+                </div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-70"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <Link 
-                  to={`/projects#${project.id}`}
-                  className="text-white font-bold text-xl hover:text-brand-accent transition"
-                >
-                  {project.title}
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
         <div className="text-center mt-8">
           <Link to="/projects" className="inline-block bg-brand-main text-white px-8 py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition">
             View All Projects
@@ -195,6 +261,7 @@ function ProjectsPreview() {
     </section>
   );
 }
+
 
 function ContactSection() {
   const [formData, setFormData] = useState({
