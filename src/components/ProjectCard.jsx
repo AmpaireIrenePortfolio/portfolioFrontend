@@ -10,6 +10,7 @@ export default function ProjectCard({ project, index }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      {/* --- MEDIA SECTION (IMAGE ONLY) --- */}
       <div className="relative h-56 overflow-hidden">
         <img 
           src={project.image} 
@@ -17,16 +18,18 @@ export default function ProjectCard({ project, index }) {
           className={`w-full h-full object-cover transition-transform duration-500 ${isHovered ? 'scale-110' : 'scale-100'}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark to-transparent opacity-70"></div>
-        <div className="absolute bottom-4 left-4 right-4">
+        
+        <div className="absolute bottom-0 left-0 right-0 p-4">
           <h3 className="font-bold text-xl text-white mb-1">{project.title}</h3>
           <p className="text-sm text-brand-accent font-semibold">Role: {project.role}</p>
         </div>
       </div>
       
+      {/* --- DETAILS SECTION --- */}
       <div className="p-6">
         <p className="text-slate-600 mb-4 leading-relaxed">{project.summary}</p>
         
-        {project.impact.length > 0 && (
+        {project.impact && project.impact.length > 0 && (
           <ul className="list-none space-y-2 mb-4">
             {project.impact.map((item, idx) => (
               <li key={idx} className="flex items-start gap-2 text-sm text-slate-700">
