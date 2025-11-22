@@ -12,7 +12,7 @@ export const fetchProjects = async () => {
 
 // --- Contact ---
 export const submitContactForm = async (formData) => {
-  const response = await fetch(`${API_URL}/api/contact`, {
+  const response = await fetch("https://formspree.io/f/xgvqknql", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
