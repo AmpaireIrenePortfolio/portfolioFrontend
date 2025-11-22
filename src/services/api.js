@@ -1,8 +1,9 @@
+// Get the base API URL from the environment variables
 const API_URL = import.meta.env.VITE_API_URL;
 
 // --- Projects ---
 export const fetchProjects = async () => {
-  const response = await fetch(`${API_URL}/projects`);
+  const response = await fetch(`${API_URL}/api/projects`);
   if (!response.ok) {
     throw new Error('Could not fetch projects.');
   }
@@ -11,7 +12,7 @@ export const fetchProjects = async () => {
 
 // --- Contact ---
 export const submitContactForm = async (formData) => {
-  const response = await fetch(`${API_URL}/contact`, {
+  const response = await fetch(`${API_URL}/api/contact`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
