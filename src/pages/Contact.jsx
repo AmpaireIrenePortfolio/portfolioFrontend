@@ -14,17 +14,18 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // Use the single, corrected handleSubmit function
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus(''); // Reset status message
 
     try {
-      // Call the service function to send the data to your working backend
+      // Use the service function to send the form data
       await submitContactForm(formData);
       
       // If the promise resolves (no error was thrown), it was successful
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' }); // Clear the form
+      setFormData({ name: '', email: '', message: '' }); // Clear form
     } catch (error) {
       // If the service function throws an error, it will be caught here
       console.error('Form submission error:', error);
@@ -39,7 +40,6 @@ export default function Contact() {
         <h1 className="text-2xl font-semibold mb-4">Contact</h1>
         
         <div className="bg-white shadow-lg rounded-lg p-8 space-y-6">
-          {/* Contact Info Display */}
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-blue-100">
               <span className="text-xl text-blue-600">✉</span>
@@ -94,7 +94,7 @@ export default function Contact() {
         </div>
 
         <div className="mt-8">
-          {/* Status Message Display */}
+          {/* The status message display was already here and is correct */}
           {status === 'success' && <p className="text-green-600 mb-4">Thank you! Your message has been sent.</p>}
           {status === 'error' && <p className="text-red-600 mb-4">Oops! Something went wrong. Please try again.</p>}
           
@@ -138,7 +138,7 @@ export default function Contact() {
                 placeholder="Your message here..."
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-main focus:border-transparent"
                 required
-              ></textarea>
+                ></textarea>
             </div>
             
             <button 
