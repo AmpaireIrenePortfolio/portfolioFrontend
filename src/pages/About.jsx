@@ -1,5 +1,6 @@
 import React from 'react';
 import Timeline from '../components/Timeline';
+import myPhoto from '../assets/irene.jpg';
 
 export default function About() {
   const values = [
@@ -17,11 +18,14 @@ export default function About() {
         
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="bg-white shadow-lg rounded-xl p-8">
-            <div className="w-full h-64 mb-6 rounded-lg overflow-hidden">
+            <div className="w-full h-96 mb-6 rounded-lg overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600" 
-                alt="Professional African Woman"
-                className="w-full h-full object-cover"
+               
+                  src={myPhoto}
+                  alt="My Portrait"
+                  className="w-full h-full object-cover object-top"
+
+
               />
             </div>
             <p className="text-lg text-slate-700 leading-relaxed">
