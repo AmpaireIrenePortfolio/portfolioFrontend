@@ -4,36 +4,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import About from './pages/About';
-import Resume from './pages/Resume'; // Import the Resume page
-
-// A new component for the dropdown menu
-function ResumeDropdown() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="relative">
-      <button
-        className="hover:text-brand-main transition flex items-center gap-1"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        Resume
-        {/* Dropdown Arrow Icon */}
-        <svg className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7-7-7 7" />
-        </svg>
-      </button>
-      {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-10">
-          <Link to="/resume#work-experience" className="block px-4 py-2 text-brand-dark hover:bg-gray-100">Work Experience</Link>
-          <Link to="/resume#internship-volunteering" className="block px-4 py-2 text-brand-dark hover:bg-gray-100">Internship & Volunteering</Link>
-          <Link to="/resume#education" className="block px-4 py-2 text-brand-dark hover:bg-gray-100">Education</Link>
-          <Link to="/resume#accomplishments" className="block px-4 py-2 text-brand-dark hover:bg-gray-100">Accomplishments</Link>
-        </div>
-      )}
-    </div>
-  );
-}
-
+import Resume from './pages/Resume';
 
 export default function App() {
   return (
@@ -49,11 +20,15 @@ export default function App() {
             <Link to="/about" className="hover:text-brand-main transition">About</Link>
             <Link to="/contact" className="hover:text-brand-main transition">Contact</Link>
             
-            {/* Use the new ResumeDropdown component */}
-            <ResumeDropdown />
+            {/* Simple Resume link without dropdown or anchor links */}
+            <Link to="/resume" className="hover:text-brand-main transition">Resume</Link>
 
-            <a href="/Ampaire_Irene_CV.pdf" className="bg-brand-main text-white px-3 py-1 rounded hover:opacity-90 transition ml-2">
-              Download CV
+            <a 
+              href="/portfolioFrontend/ampaire_irene_resume.pdf" 
+              download="Ampaire_Irene_Resume.pdf"
+              className="bg-brand-main text-white px-3 py-1 rounded hover:opacity-90 transition ml-2"
+            >
+              Download Resume
             </a>
           </nav>
         </div>
@@ -65,7 +40,7 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/resume" element={<Resume />} /> {/* Add the Resume route */}
+          <Route path="/resume" element={<Resume />} />
         </Routes>
       </main>
 

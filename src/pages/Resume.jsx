@@ -135,8 +135,12 @@ export default function Resume() {
         </div>
         
         <div className="text-center mt-12">
-          <a href="/Ampaire_Irene_CV.pdf" className="inline-block bg-brand-main text-white px-8 py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition">
-            Download Full CV
+          <a 
+            href="/portfolioFrontend/ampaire_irene_resume.pdf" 
+            download="Ampaire_Irene_Resume.pdf"
+            className="inline-block bg-brand-main text-white px-8 py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition"
+          >
+            Download Resume
           </a>
         </div>
       </div>
