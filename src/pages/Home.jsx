@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SkillsShowcase from '../components/SkillsShowcase';
 
+import ampaireImage from '../assets/ampaire.png'; 
 import { fetchProjects, submitContactForm } from '../services/api';
 
 // ... other components
@@ -17,7 +18,7 @@ function HeroSection() {
     <section 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: 'linear-gradient(rgba(15, 23, 36, 0.85), rgba(15, 23, 36, 0.85)), url(https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200)',
+        backgroundImage: `linear-gradient(rgba(15, 23, 36, 0.85), rgba(15, 23, 36, 0.85)), url(${ampaireImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}
