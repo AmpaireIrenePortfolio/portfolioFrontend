@@ -31,7 +31,7 @@ function HeroSection() {
           Mechanical Engineer · Full-stack Developer · UX Designer · Entrepreneur
         </p>
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 leading-relaxed text-gray-200">
-          I design systems and products that create meaningful community change — scalable backend systems, UX-first web apps, and hands-on engineering solutions that keep people moving.
+          I design systems and products that create meaningful community change, scalable backend systems, UX-first web apps, and hands-on engineering solutions that keep people moving.
         </p>
         <div className="flex gap-4 justify-center flex-wrap">
           <a 
