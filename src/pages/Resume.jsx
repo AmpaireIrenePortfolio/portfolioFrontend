@@ -29,7 +29,7 @@ export default function Resume() {
                   Implemented process improvements that increased inspection throughput and minimized unscheduled repairs. 
                   Enhanced operational efficiency and safety through innovative inspection methods and documentation improvements.
                 </p>
-                <p className="text-sm text-slate-500">2020 - Present</p>
+                <p className="text-sm text-slate-500">2023 - Present</p>
               </div>
               
               <div className="bg-white shadow-lg rounded-xl p-8">
@@ -38,7 +38,7 @@ export default function Resume() {
                 <p className="text-slate-600 mb-4">
                   Cleared vendor payment backlog, restored supply chain operations, and improved inventory management systems.
                 </p>
-                <p className="text-sm text-slate-500">2018 - 2020</p>
+                <p className="text-sm text-slate-500">2023</p>
               </div>
               
               <div className="bg-white shadow-lg rounded-xl p-8">
@@ -47,7 +47,7 @@ export default function Resume() {
                 <p className="text-slate-600 mb-4">
                   Led survey-based strategy that resulted in +20% sales increase. Developed client relationships and technical solutions.
                 </p>
-                <p className="text-sm text-slate-500">2016 - 2018</p>
+                <p className="text-sm text-slate-500">2022</p>
               </div>
             </div>
           </section>
@@ -62,7 +62,7 @@ export default function Resume() {
                   Developed full-stack applications and participated in agile development processes. 
                   Gained experience in modern web technologies and collaborative coding practices.
                 </p>
-                <p className="text-sm text-slate-500">2019</p>
+                <p className="text-sm text-slate-500">2025</p>
               </div>
               
               <div className="bg-white shadow-lg rounded-xl p-8">
@@ -71,7 +71,7 @@ export default function Resume() {
                 <p className="text-slate-600 mb-4">
                   Taught mechanical engineering concepts to high school students and organized workshops on innovation and design thinking.
                 </p>
-                <p className="text-sm text-slate-500">2017 - 2018</p>
+                <p className="text-sm text-slate-500">2021-2022</p>
               </div>
             </div>
           </section>
@@ -86,7 +86,7 @@ export default function Resume() {
                   Graduated with Second Class Honours (Upper Division). Coursework included thermodynamics, 
                   fluid mechanics, materials science, and manufacturing processes.
                 </p>
-                <p className="text-sm text-slate-500">2012 - 2016</p>
+                <p className="text-sm text-slate-500">2017 - 2022</p>
               </div>
               
               <div className="bg-white shadow-lg rounded-xl p-8">
@@ -95,7 +95,7 @@ export default function Resume() {
                 <p className="text-slate-600 mb-4">
                   Completed intensive program covering React, Node.js, database design, and modern web development practices.
                 </p>
-                <p className="text-sm text-slate-500">2020</p>
+                <p className="text-sm text-slate-500">2025</p>
               </div>
             </div>
           </section>

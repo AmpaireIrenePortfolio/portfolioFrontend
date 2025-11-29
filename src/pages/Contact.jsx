@@ -86,11 +86,7 @@ export default function Contact() {
             </div>
           </div>
           
-          <div className="pt-4 border-t">
-            <a href="/Ampaire_Irene_CV.pdf" className="inline-block bg-brand-main text-white px-6 py-3 rounded hover:opacity-90 transition">
-              Download CV
-            </a>
-          </div>
+          
         </div>
 
         <div className="mt-8">
